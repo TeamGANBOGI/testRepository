@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>세션 스토리지 - 2 -</title>
+<script src="/test/resources/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<h1>세션 스토리지 - 2 -</h1>
+	
+	<h3>세션 스토리지에 값 추가</h3>
+	설정 키 : <input type="text" id="itemKey" /><br>
+	설정 값 : <input type="text" id="itemValue" /><br>
+	<button onclick="insertItem()">값 저장</button>
+	<br><hr>
+	
+	<h3>세션 스토리지의 정보 확인</h3>
+	<button onclick="selectAll()">정보 확인(콘솔)</button>
+	
+	<br><hr>
+	
+	<h3>세션 스토리지의 정보 한개 조회</h3>
+	키 값 : <input type="text" id="getKey" /><br>
+	<button onclick="selectOne()">조회 확인</button>
+	
+	<script>
+		function insertItem(){
+			var key = $('#itemKey').val();
+			var value = $('#itemValue').val();
+			
+			sessionStorage.setItem(key, value);
+		}
+		
+		function selectAll(){
+			console.log(sessionStorage);
+		}
+		
+		function selectOne(){
+			var key = $('#getKey').val();
+			
+			alert(sessionStorage.getItem(key));
+		}
+	</script>
+</body>
+</html>

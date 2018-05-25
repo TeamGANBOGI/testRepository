@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로컬 스토리지</title>
+<script src="/test/resources/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<!-- 
+	로컬스토리지란? 
+	  - 기존 사용자 정보를 저장하는
+		쿠키와 같은 저장소로 사용자의
+		임시 폴더에 데이터를 저장하는 방식
+	  - 값을 저장한 후에 웹 브라우저를 종료해도
+	   데이터가 유지되며, 브라우저 내의
+	   쿠키 및 데이터 삭제를 할 경우
+	   데이터가 지워진다.
+	   
+	확인 방법
+	 1. localStorage 항목(객체)을 추가한다.
+	 2. 로컬 스토리지에 값을 저장한다.
+	 3. 브라우저를 종료한다.
+	 4. 브라우저를 재 실행 한 후에
+	    데이터가 저장되어 있는지 재 확인한다.
+	 5. 데이터를 제거 한 뒤 값을 조회한다.
+	 6. 동일한 데이터를 입력한 뒤에 값을
+	    재 조회 한다.
+ -->
+ <h1>로컬 스토리지</h1>
+ <h3>로컬 스토리지에 값 추가</h3>
+ 설정 키 : <input type="text" id="itemKey" /><br>
+ 설정 값 : <input type="text" id="itemValue"><br>
+ <button onclick="insertItem();">데이터 추가</button>
+ 
+ <br><hr>
+ 
+ <h3>로컬 스토리지 정보 확인하기</h3>
+ <button onclick="selectAll()">
+ 	로컬스토리지 값 확인(콘솔)
+ </button>
+ 
+ <br><hr>
+ 
+ <h3>로컬 스토리지 정보 한 개 확인하기</h3>
+ 	키 값 : <input type="text" id="getKey" /><br>
+ <button onclick="selectOne()">
+ 	결과 확인하기
+ </button>
+ 
+ <br><hr>
+ 
+ <h3>로컬 스토리지 값 전부 제거</h3>
+ <button onclick="deleteAll()">실행 확인</button>
+ 
+ <br><hr>
+ 
+ <h3>로컬 스토리지 값 한 개 제거</h3>
+ 키 값 : <input type="text" id="deleteKey" /><br>
+ <button onclick="deleteItem()">실행 확인</button>
+ 
+ <script>
+ 	// 로컬 스토리지에 값 추가
+ 	function insertItem(){
+ 		var key = $('#itemKey').val();
+ 		var value = $('#itemValue').val();
+ 		
+ 		// 로컬 스토리지를 불러와 
+ 		// 키와 값을 저장한다.
+ 		localStorage.setItem(key, value);
+ 	}
+ 	
+ 	function selectAll(){
+ 		console.log(localStorage);
+ 	}
+ 	
+ 	function selectOne(){
+ 		var key = $('#getKey').val();
+ 		alert(localStorage.getItem(key));
+ 	}
+ 	
+	function deleteAll(){
+ 		localStorage.clear();
+ 		
+ 		console.log(localStorage);
+ 	}
+ 	
+ 	function deleteItem(){
+ 		var key = $('#deleteKey').val();
+ 		localStorage.removeItem(key);
+ 	}
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
